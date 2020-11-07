@@ -1,0 +1,67 @@
+<header>
+    <nav id="top" class="header">
+        <div class="header__left">
+            <a href="/">
+                <img class="header__logo" src="/images/logo.png" alt="logo" />
+            </a>
+
+            <div class="header__search">
+                <input type="text" class="header__searchInput" />
+                <div class="header__wrapperSearchIcon"><i class=" fa fa-search header__searchIcon"></i></div>
+
+            </div>
+        </div>
+
+        <div class="header__nav">
+            {{#if user}}
+            <div class="nav__account">
+                <a href="/account">
+                    <i class="fa fa-user" aria-hidden="true" style="margin: 0 .8rem; color: #fff;
+                        font-size: 24px;"></i></a>
+                <div class="" style="display: flex; flex-direction: column;">
+                    <a href="/account" class="header__account">
+                        <span class="header__optionLineOne">
+                            Hello {{user.name}}
+                        </span></a>
+                    <a href="/logout" class="header__optionLineTwo">
+                        Sign Out
+                    </a></div>
+            </div>
+
+            {{else}} <a href="/signin" class="header__link">
+                <div class="header__option">
+                    <span class="header__optionLineOne">
+                        Hello Guest
+                    </span>
+                    <span class="header__optionLineTwo">
+                        Sign In
+                    </span>
+                </div>
+            </a>
+            {{/if}}
+
+            <a href="/orders" class="header__link">
+                <div class="header__option">
+                    <span class="header__optionLineOne">Returns</span>
+                    <span class="header__optionLineTwo">& Orders</span>
+                </div>
+            </a>
+
+            <a href="/" class="header__link">
+                <div class="header__option">
+                    <span class="header__optionLineOne">Your</span>
+                    <span class="header__optionLineTwo">Prime</span>
+                </div>
+            </a>
+
+            <a href="/checkout" class="header__link">
+                <div class="header__optionBasket">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="header__optionLineTwo header__basketCount">
+                        0
+                    </span>
+                </div>
+            </a>
+        </div>
+    </nav>
+</header>

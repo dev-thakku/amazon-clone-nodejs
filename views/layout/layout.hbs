@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Styles for Header -->
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+    {{#if home}}
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    {{else if login}}
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    {{/if}}
+    {{#if bootstrap}}
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    {{/if}}
+</head>
+
+<body>
+    {{#if admin}}
+    {{>admin-header}}
+    {{else}}
+    {{>user-header}}
+    {{/if}}
+    {{{body}}}
+
+    {{#if bootstrap}}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+    {{/if}}
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+@import url(//db.onlinewebfonts.com/c/157c6cc36dd65b1b2adc9e7f3329c761?family=Amazon+Ember);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(234, 237, 237);
+  font-family: "Amazon Ember", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.header {
+  background-color: #131921;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.header__left {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.header__left a {
+  display: flex;
+  text-decoration: none;
+}
+
+.header__logo {
+  display: flex;
+  width: 100px;
+  margin: 0px 20px;
+  margin-top: 18px;
+  align-self: center;
+  margin-bottom: 5px;
+}
+
+.header__left h5 {
+  justify-self: center;
+  align-self: center;
+  color: #fff;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.header__left h5 br {
+  display: none;
+}
+
+.header__search {
+  display: flex;
+  flex: 1;
+}
+
+.header__searchInput {
+  height: 12px;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-sizing: unset;
+}
+
+.header__searchInput:focus {
+  outline: none;
+}
+
+.header__wrapperSearchIcon {
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+  padding-right: 11px;
+  height: 42px !important;
+  background-color: #cd9042;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+}
+
+.header__link {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+.nav__account {
+  margin-left: 1rem;
+  color: #fff;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header__account {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+.header__option {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px;
+}
+
+.header__optionLineOne {
+  font-size: 10px;
+}
+
+.header__optionLineTwo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.header__optionBasket {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: cadetblue;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.header__basketCount {
+  margin: 0 10px;
+}
+
+.form-group.required .control-label:after {
+  content: "*";
+  color: red;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+  .header__left {
+    width: 91.7%;
+    background-color: #131921;
+    padding: 10px 15px;
+    align-items: flex-end;
+  }
+  .header__logo {
+    margin: 0 1em 0 0;
+  }
+
+  .header__nav {
+    padding: 1em 0;
+    background-color: #54667d;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header__left h5 {
+    font-size: 14px;
+  }
+
+  .header__left h5 br {
+    display: unset;
+  }
+}

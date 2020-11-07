@@ -1,0 +1,43 @@
+<header>
+    <nav id="top" class="header">
+        <div class="header__left">
+            <a href="/">
+                <img class="header__logo" src="/images/logo.png" alt="logo" />
+                <h5>ADMIN<br> PANEL</h5>
+            </a>
+
+            <div class="header__search">
+                <input type="text" class="header__searchInput" />
+                <div class="header__wrapperSearchIcon"><i class=" fa fa-search header__searchIcon"></i></div>
+
+            </div>
+        </div>
+
+        <div class="header__nav">
+            <a href=/login class="header__link">
+                <div onClick={login} class="header__option">
+                    <span class="header__optionLineOne">
+                        Hello
+                    </span>
+                    <span class="header__optionLineTwo">
+                        Admin
+                    </span>
+                </div>
+            </a>
+
+            <a href="/orders" class="header__link">
+                <div class="header__option">
+                    <span class="header__optionLineOne">All</span>
+                    <span class="header__optionLineTwo">Orders</span>
+                </div>
+            </a>
+
+            <a href="/" class="header__link">
+                <div class="header__option">
+                    <span class="header__optionLineOne">All</span>
+                    <span class="header__optionLineTwo">Users</span>
+                </div>
+            </a>
+        </div>
+    </nav>
+</header>

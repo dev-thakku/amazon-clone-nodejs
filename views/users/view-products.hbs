@@ -1,0 +1,38 @@
+<section>
+    <div class="home">
+        <div class="banner">
+            <img class="home__banner" src="/images/banner1.jpg" alt="" />
+        </div>
+
+        <div class="home__row">
+            {{#each products}}
+            <div>
+                <div class="product">
+                    <a href="products/{{this._id}}">
+                        <div class="product__info">
+                            <p>{{this.name}}</p>
+                            <p class="product__brand"> {{this.brand}}</p>
+                            <p class="product__price">
+                                <small>₹</small>
+                                <strong>{{this.price}}</strong>
+                            </p>
+                        </div>
+
+                        <img class="product__img" src="/images/product-images/{{this._id}}.jpg" alt="{{this.name}}" />
+                    </a>
+                    <div class="product__btns">
+                        <a href="/products/{{this.id}}">
+                            <button class="product__btn btn__detail">
+                                View Product Details
+                            </button>
+                        </a>
+                        <button class="product__btn btn__add" onClick={addToBasket}>
+                            Add to Basket
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
