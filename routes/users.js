@@ -5,9 +5,18 @@ var router = express.Router();
 var productHelpers = require("../helpers/product-helpers");
 const userHelpers = require("../helpers/user-helpers");
 
+const verifyLogin = (req, res, next) => {
+  if (req.session.loggedIn) {
+    next();
+  } else {
+    res.redirect("/signin");
+  }
+};
+
 /* GET home page. */
 router.get("/", (req, res, next) => {
   let user = req.session.user;
+  console.log("session.user>>>>> ");
   console.log(user);
   productHelpers.getAllProducts().then((products) => {
     let i = 0,
@@ -28,8 +37,7 @@ router.get("/signin", (req, res) => {
     res.redirect("/");
   } else {
     res.render("users/login", {
-      passErr: req.session.passErr,
-      noUser: req.session.noUser,
+      loginErr: req.session.loginErr,
       login: true,
       bootstrap: true,
     });
@@ -45,10 +53,10 @@ router.post("/api/signin", (req, res) => {
       req.session.user = response.user;
       res.redirect("/");
     } else if (response.wrongPass) {
-      req.session.passErr = true;
+      req.session.loginErr = "Invalid Password";
       res.redirect("/signin");
     } else if (response.noUser) {
-      req.session.noUser = true;
+      req.session.loginErr = "E-Mail not Exists";
       res.redirect("/signin");
     }
   });
@@ -76,12 +84,14 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-router.get("/orders", (req, res) => {
-  if (req.session.loggedIn) {
-    res.render("users/orders");
-  } else {
-    res.redirect("/signin");
-  }
+router.get("/orders", verifyLogin, (req, res) => {
+  let user = req.session.user;
+  res.render("users/orders", { user });
+});
+
+router.get("/cart", verifyLogin, (req, res) => {
+  let user = req.session.user;
+  res.render("users/cart", { user });
 });
 
 module.exports = router;

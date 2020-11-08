@@ -1,6 +1,8 @@
 <section style="width: 100%; overflow-y: hidden;">
 
-    <div class="row pb-3 bg-dark"><a href="/admin/add-product" class="btn btn-success  ml-auto mt-3 mr-4">Add
+    <div class="row bg-dark">
+        <h4 class="text-light mt-auto mb-auto ml-4 mr-auto">Admin Panel</h4>
+        <a href="/admin/add-product" class="btn btn-success  ml-auto mt-3 mr-4 mb-3">Add
             Product</a>
     </div>
 
@@ -9,8 +11,8 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">No.</th>
+                <th scope="col">Options</th>
                 <th scope="col">Title</th>
-                <th scope="col">Brand</th>
                 <th scope="col">Category</th>
                 <th scope="col">Price</th>
                 <th scope="col">Image</th>
@@ -19,16 +21,52 @@
         <tbody class="bg-light">
             {{#each products}}
             <tr valign="center">
+
                 <th scope="row">{{this.no}}</th>
+                <td>
+                    <a href="/admin/product-details?id={{this._id}}" class="btn btn-info " data-toggle="tooltip"
+                        data-placement="right" title="View Full Product Details"><i class="fa fa-eye"></i></a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                        data-target="#deleteModal{{this.no}}">
+                        <i class="fa fa-trash-o"></i>
+                    </button>
+                    <a href="/admin/edit-product?id={{this._id}}" class="btn btn-warning"><i
+                            class="fa fa-pencil"></i></a>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModal{{this.no}}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Delete Product</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure want to delete <strong>{{this.name}}</strong>?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <a href="/admin/delete-product?id={{this._id}}" type="button"
+                                        class="btn btn-danger text-light">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
                 <td>{{this.name}}</td>
-                <td>{{this.brand}}</td>
                 <td>{{this.category}}</td>
                 <td> <small>₹ </small> <strong>{{this.price}}</strong></td>
-                <td> <img src="/images/product-images/{{this._id}}.jpg" alt="{{this.name}} image" style="
-                    height: 50px;
-                    object-fit: contain
-                    ">
+                <td> <img src="/images/product-images/{{this._id}}.jpg" alt="{{this.name}} image"
+                        style="height: 50px; object-fit: contain">
+                </td>
+                </a>
+
             </tr>
+
             {{/each}}
         </tbody>
     </table>

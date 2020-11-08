@@ -1,13 +1,12 @@
 const MongoClient = require("mongodb").MongoClient;
-
+require("dotenv").config();
 
 const state = {
   db: null,
 };
 
 module.exports.connect = async (done) => {
-  const uri =
-    "mongodb+srv://shopping:crossroads@cluster0.lh4qj.mongodb.net/shopping?retryWrites=true&w=majority";
+  const uri = process.env.URI;
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
