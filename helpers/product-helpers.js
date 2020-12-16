@@ -35,13 +35,35 @@ module.exports = {
     });
   },
 
-  productDetails: (proId) => {
+  getProductDetails: (proId) => {
     return new Promise((resolve, reject) => {
       db.get()
         .collection(collections.PRODUCT_COLLECTION)
         .findOne({ _id: objectID(proId) })
         .then((product) => {
           resolve(product);
+        });
+    });
+  },
+
+  updateProduct: (product, proId) => {
+    return new Promise((resolve, reject) => {
+      db.get()
+        .collection(collections.PRODUCT_COLLECTION)
+        .updateOne(
+          { _id: objectID(proId) },
+          {
+            $set: {
+              name: product.name,
+              category: product.category,
+              brand: product.brand,
+              price: product.price,
+              description: product.description,
+            },
+          }
+        )
+        .then((response) => {
+          resolve();
         });
     });
   },

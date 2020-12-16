@@ -3,41 +3,50 @@
         <div class="row">
 
             <div class="col-md-6">
-                <h2 class="text-center">Add Product</h2>
-                <form action="/admin/api/add-product" method="post" enctype="multipart/form-data">
+                <h2 class="text-center">Edit Product</h2>
+                <form action="/admin/api/edit-product?id={{product._id}}" method="post" enctype="multipart/form-data">
 
                     <div class="form-group required">
                         <label class="control-label" for="name">Name</label>
-                        <input name="name" type="text" class="form-control mb-2" placeholder="Product Name" required>
+                        <input name="name" type="text" class="form-control mb-2" placeholder="Product Name"
+                            value="{{product.name}}" required>
                     </div>
 
                     <div class="form-group required">
                         <label class="control-label" for="category">Category</label>
-                        <input name="category" type="text" class="form-control mb-2" placeholder="eg: Mobile" required>
+                        <input name="category" type="text" class="form-control mb-2" placeholder="eg: Mobile"
+                            value="{{product.category}}" required>
                     </div>
 
                     <div class="form-group required">
                         <label class="control-label" for="brand">Brand</label>
-                        <input name="brand" type="text" class="form-control mb-2" placeholder="eg: Apple" required>
+                        <input name="brand" type="text" class="form-control mb-2" placeholder="eg: Apple"
+                            value="{{product.brand}}" required>
                     </div>
 
                     <div class="form-group required">
                         <label class="control-label" for="price">Price</label>
-                        <input name="price" type="number" class="form-control mb-2" placeholder="eg: 34000" required>
+                        <input name="price" type="number" class="form-control mb-2" placeholder="eg: 34000"
+                            value="{{product.price}}" required>
                     </div>
 
 
                     <div class="form-group required mt-2 mb-4">
                         <div class="container">
                             <div class="row"><label class="control-label" for="image">Image</label></div>
-                            <div class="row"><input type="file" name="image" required></div>
+                            <div class="row align-items-center">
+                                <input type="file" name="image" onchange="imageView{event}" required>
+                                <img id="imgView" src="/images/product-images/{{product._id}}.jpg"
+                                    alt="{{product.name}} image" style="height: 100px; object-fit: contain">
+                            </div>
+
                         </div>
                     </div>
 
                     <div class="form-group required">
                         <label class="control-label" for="description">Description</label>
                         <textarea name="description" class="form-control mb-2" placeholder="Product Description"
-                            required></textarea>
+                            required>{{product.description}}</textarea>
                     </div>
 
                     <button type="submit" class="btn btn-success mt-3 mb-4">Submit</button>
